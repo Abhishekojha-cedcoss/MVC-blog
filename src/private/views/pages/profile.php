@@ -82,7 +82,7 @@
   <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
   <div class="navbar-nav">
     <div class="nav-item text-nowrap">
-      <a class="nav-link px-3" href="login.php">Sign out</a>
+      <a class="nav-link px-3" href="<?php echo URLROOT?>'pages/login">Sign out</a>
     </div>
   </div>
 </header>
@@ -98,7 +98,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="userdash.php">
+              <a class="nav-link" aria-current="page" href="<?php echo URLROOT?>'pages/userdash">
                 Go To Home
               </a>
             </li>

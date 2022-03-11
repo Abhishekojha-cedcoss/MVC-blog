@@ -27,5 +27,10 @@ class User
         }
         return array("role"=>'no', "status"=>'no');
     }
-
+    public function getAllUsers()
+    {
+        $this->db->query("SELECT * FROM Users");
+        $result = $this->db->resultSet();
+        return $result;
+    }
 }

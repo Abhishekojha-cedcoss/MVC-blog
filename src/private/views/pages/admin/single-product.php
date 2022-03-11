@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -25,7 +24,7 @@
                     <ul class="list-unstyled">
                       <li><a href="#" class="text-white">Follow on Twitter</a></li>
                       <li><a href="#" class="text-white">Like on Facebook</a></li>
-                      <li><a href="<?php echo URLROOT?>pages/profile/" class="text-white">View Profile</a></li>
+                      <li><a href="<?php echo URLROOT?>pages/admindash" class="text-white">Go to dashboard</a></li>
                     </ul>
                   </div>
                 </div>
@@ -59,10 +58,20 @@
                     <?php echo 'src="../images/'.$v["blog_image"].'"'; ?>  alt="..." /></div>
                     <div class="col-md-6">
                         
-                
+                    
+                        <div class="small mb-1">SKU: <?php echo $v["blog_id"]; ?></div>
                         <h1 class="display-5 fw-bolder"><?php echo $v["blog_name"]; ?></h1>
                         <p class="lead"><?php echo $v["blog_description"]; ?></p>
                         <div class="d-flex">
+                            <?php
+                             echo '<form action="'.URLROOT.'pages/editBlog" method="POST">
+                                     <input type="hidden" name="id" value="'.$v["blog_id"].'">
+                                     <input type="hidden" name="name" value="'.$v["blog_name"].'">
+                                     <input type="hidden" name="image" value="'.$v["blog_image"].'">
+                                     <input type="hidden" name="description" value="'.$v["blog_description"].'">
+                                     <input class="btn btn-info" type="submit" name="edit" value="Edit Blog">
+                                   </form>'
+                            ?>
   
                         </div>
                     </div>

@@ -22,4 +22,20 @@ class Blog
         $result = $this->db->resultSet();
         return $result;
     }
+    public function updateBlog(
+        $id,
+        $name,
+        $description,
+        $image
+    ) {
+            $this->db->query("UPDATE blogs SET blog_name='$name',
+             blog_image='$image',
+             blog_description='$description'
+              WHERE blog_id=$id");
+            $this->db->execute();
+            return "done";
+        //  catch (\PDOException $e) {
+        //     return "not";
+        // }
+    }
 }

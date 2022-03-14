@@ -139,20 +139,36 @@ class Pages extends Controller
             $image=$_POST["image"];
             $result1=$this->blogModel->updateBlog($id, $bname, $description, $image);
             if ($result1=="done") {
-                $this->adminHome();
+                if ($_SESSION["user"]["role"]=="admin") {
+                    $this->adminHome();
+                    exit();
+                } elseif ($_SESSION["user"]["role"]=="user") {
+                    $this->myblog();
+                    exit();
+                }
             } else {
                 echo "There was some error. Please Try After some time!";
+            }
+        }
+        if (isset($_POST["delete"])) {
+            $id=$_POST["id"];
+            $this->blogModel->deleteBlog($id);
+            if ($_SESSION["user"]["role"]=="admin") {
+                $this->adminHome();
+            } elseif ($_SESSION["user"]["role"]=="user") {
+                $this->myblog();
             }
         }
     }
     public function addNewBlog()
     {
-        
         if (isset($_POST["add"])) {
+            $userid=$_SESSION["user"]["id"];
+            $userid=$_SESSION["user"]["user_id"];
             $bname=$_POST["bname"];
             $description=$_POST["description"];
             $image=$_POST["image"];
-            $res=$this->blogModel->addNewBlog($bname, $description, $image);
+            $res=$this->blogModel->addNewBlog($bname, $description, $image, $userid);
             if ($res=="done") {
                 $this->adminhome();
             }
@@ -176,5 +192,32 @@ class Pages extends Controller
             $data=$this->userModel->addUser($username, $firstname, $lastname, $password, $email);
         }
         $this->view("pages/signup", $data);
+    }
+    public function addNewBlogbyUser()
+    {
+        if (isset($_POST["add"])) {
+            // die($_SESSION["user"]["id"]);
+            $userid=$_SESSION["user"]["id"];
+            $bname=$_POST["bname"];
+            $description=$_POST["description"];
+            $image=$_POST["image"];
+            $res=$this->blogModel->addNewBlog($bname, $description, $image, $userid);
+            if ($res=="done") {
+                $this->myblog();
+                exit();
+            }
+        }
+        $this->view('pages/addNewBlogByUser');
+        
+    }
+    public function myblog()
+    {
+        if (isset($_POST["delete"])) {
+            $id=$_POST["id"];
+            $this->blogModel->deleteBlog($id);
+        }
+        $userid=$_SESSION["user"]["id"];
+        $result1=$this->blogModel->getBlogById($userid);
+        $this->view("pages/myblog", $result1);
     }
 }

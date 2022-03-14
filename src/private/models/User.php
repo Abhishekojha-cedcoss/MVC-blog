@@ -49,4 +49,9 @@ class User
         $this->db->query("UPDATE Users SET Status='pending' WHERE user_id='$id'");
         $this->db->execute();
     }
+    public function deleteUser($id)
+    {
+        $this->db->query("DELETE FROM Users WHERE user_id='$id'");
+        $this->db->execute();
+    }
 }

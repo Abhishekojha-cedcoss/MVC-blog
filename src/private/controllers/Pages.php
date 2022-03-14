@@ -29,7 +29,7 @@ class Pages extends Controller
             $result=$this->userModel->checkUser($email, $password);
             
             if ($result["role"]=="admin") {
-                $this->admindash();
+                $this->adminHome();
             } elseif ($result["role"]=="user" && $result["status"]=="approved") {
                 $this->userdash();
             } elseif ($result["role"]=="user" && $result["status"]=="pending") {
@@ -79,11 +79,19 @@ class Pages extends Controller
                 }
             }
         }
+        if (isset($_POST["submit1"])) {
+            $id1 = $_POST["del"];
+            $this->userModel->deleteUser($id1);
+        }
         $result2=$this->userModel->getAllUsers();
         $this->view('pages/admin/dashboard', $result2);
     }
     public function adminHome()
     {
+        if (isset($_POST["delete"])) {
+            $id=$_POST["id"];
+            $this->blogModel->deleteBlog($id);
+        }
         $result1=$this->blogModel->showAllBlogs();
         $this->view('pages/admin/home', $result1);
     }
@@ -110,8 +118,8 @@ class Pages extends Controller
         if (isset($_POST["update"])) {
             $id=$_POST["prodID"];
             $bname=$_POST["bname"];
-            $description=htmlentities($_POST["description"]);
-            // die(htmlentities($description));
+            $description=$_POST["description"];
+            // die($description);
             $image=$_POST["image"];
             $result1=$this->blogModel->updateBlog($id, $bname, $description, $image);
             if ($result1=="done") {
@@ -120,5 +128,19 @@ class Pages extends Controller
                 echo "There was some error. Please Try After some time!";
             }
         }
+    }
+    public function addNewBlog()
+    {
+        
+        if (isset($_POST["add"])) {
+            $bname=$_POST["bname"];
+            $description=$_POST["description"];
+            $image=$_POST["image"];
+            $res=$this->blogModel->addNewBlog($bname, $description, $image);
+            if ($res=="done") {
+                $this->adminhome();
+            }
+        }
+        $this->view('pages/admin/addNewBlog');
     }
 }

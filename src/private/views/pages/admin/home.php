@@ -148,7 +148,7 @@
           <br>
 
 
-          <form action="addNewBlog.php" method="POST">
+          <form action="<?php echo URLROOT?>pages/addNewBlog" method="POST">
             <button class="btn btn-info" type="submit">Add New Blog</button>
           </form>
           </div>

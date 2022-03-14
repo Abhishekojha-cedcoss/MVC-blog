@@ -28,14 +28,35 @@ class Blog
         $description,
         $image
     ) {
-            $this->db->query("UPDATE blogs SET blog_name='$name',
-             blog_image='$image',
-             blog_description='$description'
-              WHERE blog_id=$id");
+        try {
+            $this->db->query("UPDATE blogs SET blog_name=:name,
+             blog_image=:image,
+             blog_description = :description
+             WHERE blog_id=$id");
+            $this->db->bind(':name', $name);
+            $this->db->bind(':image', $image);
+            $this->db->bind(':description', $description);
             $this->db->execute();
             return "done";
-        //  catch (\PDOException $e) {
-        //     return "not";
-        // }
+        } catch (\PDOException $e) {
+            return "not";
+        }
+    }
+    public function deleteBlog($id)
+    {
+        $this->db->query("DELETE FROM blogs WHERE blog_id='$id'");
+        $this->db->execute();
+    }
+    public function addNewBlog($bname, $description, $image)
+    {
+        try {
+            $this->db->query("INSERT INTO `blogs`(`blog_name`, `blog_description`, `blog_image`) 
+            VALUES('$bname', '$description', '$image')");
+            $this->db->execute();
+            return "done";
+        } catch (\PDOException $e) {
+            return "error";
+        }
+
     }
 }

@@ -1,34 +1,10 @@
 <?php
-// session_start();
-// include "config.php";
-// include "classes/DB.php";
-// if (isset($_SESSION["cart"])) {
-//     // header("location: ustore/checkout.php");
-// }
-// if (!isset($_SESSION["user"])) {
-//     header("location: ../login.php");
-// }
-// $email=$_SESSION["user"]["email"];
-// $password=$_SESSION["user"]["password"];
-// $stmt = user\DB::getInstance()->prepare("SELECT * FROM Users WHERE email='$email'");
-// $stmt->execute();
-// $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-// foreach ($stmt->fetchAll() as $k => $v) {
-//     $fname=$v["firstName"];
-//     $lname=$v["lastname"];
-//     $uid=$v["user_id"];
-//     $username=$v["username"];
-// }
-// if (isset($_POST["submit"])) {
-//     $fname=$_POST["fname"];
-//     $lname=$_POST["lname"];
-//     $password=$_POST["password"];
-//     $stmt = user\DB::getInstance()->prepare("UPDATE Users 
-//     SET `password`='$password',firstName='$fname',lastname='$lname' 
-//     WHERE email='$email'");
-//     $stmt->execute();
-// }
-
+$email=$data["email"];
+$password=$data["password"];
+$fname=$data["firstName"];
+$lname=$data["lastname"];
+$uid=$data["id"];
+$username=$data["username"];
 ?>
 
 <!doctype html>
@@ -68,7 +44,7 @@
 
     
     <!-- Custom styles for this template -->
-    <link href="../../../public/assets/css/dashboard.css" rel="stylesheet">
+    <link href="<?php echo URLROOT?>assets/css/dashboard.css" rel="stylesheet">
   </head>
   <body>
     
@@ -82,7 +58,7 @@
   <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
   <div class="navbar-nav">
     <div class="nav-item text-nowrap">
-      <a class="nav-link px-3" href="<?php echo URLROOT?>'pages/login">Sign out</a>
+      <a class="nav-link px-3" href="<?php echo URLROOT?>pages/login">Sign out</a>
     </div>
   </div>
 </header>
@@ -143,6 +119,7 @@
                 <label for="password">Password:
                   <input type="text" name="password" value="<?php echo $password; ?>" id="password">
                 </label><br><br>
+                <input type="hidden" name="emailid" value="<?php echo $email; ?>">
                 <button type="button" class="btn btn-primary" id="Edit">Edit Profile</button>
                 <button type="submit" class="btn btn-primary" id="Update" 
                 style="display:none" name="submit">Update Profile</button>
@@ -152,7 +129,7 @@
             </main>
           </div>
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-          <script src="script.js"> </script>
+          <script src="<?php echo URLROOT?>assets/js/script1.js"> </script>
           </body>
 </html>
                 

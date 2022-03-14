@@ -57,8 +57,6 @@
       <div class="message text-danger">
        <p> <?php if (!empty($data)) {
             echo $data;
-} else {
-          echo $data??'';
 } ?></p>
       </div>
       <p>Don't have a account?</p>

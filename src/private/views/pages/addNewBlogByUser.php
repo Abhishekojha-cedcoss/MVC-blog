@@ -18,8 +18,8 @@
 
 
     <style>
-        #sidebarMenu li a:hover {
-    color: #1abc9c !important;
+      #sidebarMenu li a:hover {
+        color: #1abc9c !important;
   }
       .bd-placeholder-img {
         font-size: 1.125rem;

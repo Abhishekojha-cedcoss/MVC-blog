@@ -13,11 +13,7 @@ class Pages extends Controller
 
     public function index()
     {
-        $data= [
-            "title"=>"Home Page",
-            "name"=>"Abhishek"
-        ];
-        $this->view('pages/index', $data);
+        $this->view('pages/login');
     }
 
     public function login()
@@ -164,7 +160,6 @@ class Pages extends Controller
     {
         if (isset($_POST["add"])) {
             $userid=$_SESSION["user"]["id"];
-            $userid=$_SESSION["user"]["user_id"];
             $bname=$_POST["bname"];
             $description=$_POST["description"];
             $image=$_POST["image"];

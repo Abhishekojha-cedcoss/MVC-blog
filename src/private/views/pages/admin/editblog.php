@@ -25,6 +25,9 @@
         -moz-user-select: none;
         user-select: none;
       }
+      #sidebarMenu li a:hover {
+        color: #1abc9c !important;
+      }
 
       @media (min-width: 768px) {
         .bd-placeholder-img-lg {

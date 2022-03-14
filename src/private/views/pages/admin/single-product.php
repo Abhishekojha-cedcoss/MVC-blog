@@ -79,7 +79,9 @@
 } ?>
 
                 </div>
-                
+                <div class="col-2">
+          <a href="<?php echo URLROOT ?>pages/adminHome" class="btn btn-success">cancel</a>
+        </div>
             </div>
         </section>
         <!-- Related items section-->

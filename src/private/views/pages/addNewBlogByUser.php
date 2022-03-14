@@ -13,16 +13,12 @@
     
 
     <!-- Bootstrap core CSS -->
-    <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link href="<?php echo URLROOT?>node_modules/bootstrap/dist/css/bootstrap.min.css" 
+    rel="stylesheet" crossorigin="anonymous">
 
 
     <style>
-        /* .container-fluid  {
-    color: #f5f6f7;
-    background-color: #1abc9c;
-    color: #ffffff;
-  } */
-  #sidebarMenu li a:hover {
+        #sidebarMenu li a:hover {
     color: #1abc9c !important;
   }
       .bd-placeholder-img {
@@ -42,7 +38,7 @@
 
     
     <!-- Custom styles for this template -->
-    <link href="./assets/css/dashboard.css" rel="stylesheet">
+    <link href="<?php echo URLROOT?>assets/css/dashboard.css" rel="stylesheet">
   </head>
   <body>
     
@@ -67,14 +63,14 @@
       <div class="position-sticky pt-3">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="<?php echo URLROOT ?>pages/admindash">
+            <a class="nav-link active" aria-current="page" href="<?php echo URLROOT ?>pages/userdash">
               <span data-feather="home"></span>
               Dashboard
             </a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo URLROOT ?>pages/adminHome">
+            <a class="nav-link" href="<?php echo URLROOT ?>pages/userdash">
               <span data-feather="shopping-cart"></span>
               Blogs
             </a>
@@ -124,15 +120,16 @@
           <button type="submit" class="btn btn-primary" name="add">Add Blog</button>
         </div>
         <div class="col-2">
-          <a href="<?php echo URLROOT ?>pages/adminHome" class="btn btn-success">cancel</a>
+          <a href="<?php echo URLROOT ?>pages/userdash" class="btn btn-success">cancel</a>
         </div>
+
       </form>      
     </main>
   </div>
 </div>
 
 
-    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js" 
+    <script src="<?php echo URLROOT?>node_modules/bootstrap/dist/js/bootstrap.bundle.js" 
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" 
     crossorigin="anonymous"></script>
   </body>

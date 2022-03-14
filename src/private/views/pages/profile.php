@@ -78,6 +78,11 @@ $username=$data["username"];
                 Go To Home
               </a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="<?php echo URLROOT?>'pages/myblog">
+                My blogs
+              </a>
+            </li>
             <hr>
             </ul>
             </div>

@@ -71,10 +71,8 @@
   <section class="py-5 text-center container">
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">Blogs</h1>
-        <p class="lead text-muted">Something short and leading about the collection below—its contents, 
-          the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
-
+        <h1 class="fw-light">My Blogs</h1>
+    
       </div>
     </div>
   </section>
@@ -83,6 +81,10 @@
 
 
               <div class="container">
+              <div class="col-2">
+          <a href="<?php echo URLROOT ?>pages/userdash" class="btn btn-success">Go to Home</a>
+        </div>
+        <br>
               <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                   
                             <?php
@@ -102,7 +104,18 @@
                       <form action="'.URLROOT.'pages/viewProduct" method="POST">
                       <input type="hidden" name="id" value="'.$v["blog_id"].'">
                       <input class="btn btn-success" type="submit" name="submit" value="View Full Blog"></form>
-                    </div>
+                      <form action="'.URLROOT.'pages/editBlog" method="POST">
+                      <input type="hidden" name="id" value="'.$v["blog_id"].'">
+                      <input type="hidden" name="name" value="'.$v["blog_name"].'">
+                      <input type="hidden" name="image" value="'.$v["blog_image"].'">
+                      <input type="hidden" name="description" value="'.$v["blog_description"].'">
+                      <input class="btn btn-info" type="submit" name="edit" value="Edit">
+                      </form>
+                      <form action="" method="POST">
+                      <input type="hidden" name="id" value="'.$v["blog_id"].'">
+                      <input class="btn btn-danger" type="submit" name="delete" value="Delete">
+                      </form>
+                      </div>
                   </div>
                 </div>
               </div>';
@@ -117,11 +130,14 @@
             <div class="col-2">
             <a href="<?php echo URLROOT?>pages/addNewBlogByUser" class="btn btn-info">Add New Blog</a>
             </div>
-        
-          <div class="col-2">
-            <a href="<?php echo URLROOT?>pages/myblog" class="btn btn-info">My Blogs</a>
+          <!-- <div class="col-2">
+          <a href="<?php echo URLROOT?>pages/userdash" class="btn btn-info">My Blogs</a>
+          </div> -->
+          
+
           </div>
-  </div>
+
+
           </div>
 </div>
 

@@ -68,9 +68,12 @@
                     </div>
                     <?php
 } ?>
-
+<br><br>
+                <div class="col-2">
+          <a href="<?php echo URLROOT ?>pages/userdash" class="btn btn-success">Back</a>
+        </div>
                 </div>
-                
+
             </div>
         </section>
         <!-- Related items section-->

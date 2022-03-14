@@ -47,16 +47,21 @@ class Blog
         $this->db->query("DELETE FROM blogs WHERE blog_id='$id'");
         $this->db->execute();
     }
-    public function addNewBlog($bname, $description, $image)
+    public function addNewBlog($bname, $description, $image, $userid)
     {
         try {
-            $this->db->query("INSERT INTO `blogs`(`blog_name`, `blog_description`, `blog_image`) 
-            VALUES('$bname', '$description', '$image')");
+            $this->db->query("INSERT INTO `blogs`(`blog_name`, `blog_description`, `blog_image`, `user_id`) 
+            VALUES('$bname', '$description', '$image', $userid)");
             $this->db->execute();
             return "done";
         } catch (\PDOException $e) {
             return "error";
         }
-
+    }
+    public function getBlogbyId($id)
+    {
+        $this->db->query("SELECT * FROM blogs WHERE user_id=$id");
+        $result = $this->db->resultSet();
+        return $result;
     }
 }

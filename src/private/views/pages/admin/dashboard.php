@@ -1,37 +1,3 @@
-<?php
-// session_start();
-// include "../config.php";
-// include "../classes/DB.php";
-// if (!isset($_SESSION["user"])) {
-//     header("location: login.php");
-// }
-// if (isset($_GET['pageno'])) {
-//     $pageno = $_GET['pageno'];
-// } else {
-//     $pageno = 1;
-// }
-// $no_of_records_per_page = 4;
-// $offset = ($pageno-1) * $no_of_records_per_page;
-// $stmt5 = user\DB::getInstance()->prepare("SELECT COUNT(*) FROM Users WHERE NOT role='admin'");
-// $stmt5->execute();
-// $result = $stmt5->setFetchMode(PDO::FETCH_ASSOC);
-// foreach ($stmt5->fetchAll()[0] as $k => $v) {
-//     $total_rows = $v[0];
-// }
-// $total_pages = ceil($total_rows / $no_of_records_per_page);
-// $stm = user\DB::getInstance()->prepare("SELECT * FROM Users WHERE NOT role='admin' LIMIT $offset, 
-// $no_of_records_per_page");
-// $stm->execute();
-
-
-// }
-// if (isset($_POST["submit1"])) {
-//     $id1 = $_POST["del"];
-//     $stmt2 = user\DB::getInstance()->prepare("DELETE FROM Users WHERE user_id='$id1'");
-//     $stmt2->execute();
-// }
-?>
-
 <!doctype html>
 <html lang="en">
 

@@ -28,14 +28,18 @@ class Blog
         $description,
         $image
     ) {
-            $this->db->query("UPDATE blogs SET blog_name='$name',
-             blog_image='$image',
-             blog_description='$description'
-              WHERE blog_id=$id");
+        try {
+            $this->db->query("UPDATE blogs SET blog_name=:name,
+             blog_image=:image,
+             blog_description = :description
+             WHERE blog_id=$id");
+            $this->db->bind(':name', $name);
+            $this->db->bind(':image', $image);
+            $this->db->bind(':description', $description);
             $this->db->execute();
             return "done";
-        //  catch (\PDOException $e) {
-        //     return "not";
-        // }
+        } catch (\PDOException $e) {
+            return "not";
+        }
     }
 }

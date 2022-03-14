@@ -28,7 +28,6 @@ class Blog
         $description,
         $image
     ) {
-
             $this->db->query("UPDATE blogs SET blog_name='$name',
              blog_image='$image',
              blog_description='$description'
@@ -38,6 +37,5 @@ class Blog
         //  catch (\PDOException $e) {
         //     return "not";
         // }
-
     }
 }

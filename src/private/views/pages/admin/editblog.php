@@ -13,7 +13,8 @@
     
 
     <!-- Bootstrap core CSS -->
-    <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link href="<?php echo URLROOT?>node_modules/bootstrap/dist/css/bootstrap.min.css" 
+    rel="stylesheet" crossorigin="anonymous">
 
 
     <style>
@@ -34,7 +35,7 @@
 
     
     <!-- Custom styles for this template -->
-    <link href="./assets/css/dashboard.css" rel="stylesheet">
+    <link href="<?php echo URLROOT?>assets/css/dashboard.css" rel="stylesheet">
   </head>
   <body>
     
@@ -129,7 +130,7 @@
 </div>
 
 
-    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js" 
+    <script src="<?php echo URLROOT?>node_modules/bootstrap/dist/js/bootstrap.bundle.js" 
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" 
     crossorigin="anonymous"></script>
   </body>

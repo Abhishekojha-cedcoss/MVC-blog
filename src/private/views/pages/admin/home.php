@@ -8,7 +8,7 @@
     
 
     <!-- Bootstrap core CSS -->
-    <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" 
+    <link href="<?php echo URLROOT?>node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" 
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <style>
@@ -168,11 +168,11 @@
 </footer>
 
 
-    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" 
+    <script src="<?php echo URLROOT?>node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" 
     crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="script1.js"></script>
+	<script src="<?php echo URLROOT?>script1.js"></script>
       
   </body>
 </html>

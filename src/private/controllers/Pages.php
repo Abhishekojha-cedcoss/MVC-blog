@@ -68,8 +68,19 @@ class Pages extends Controller
     }
     public function admindash()
     {
-        $result1=$this->userModel->getAllUsers();
-        $this->view('pages/admin/dashboard', $result1);
+        if (isset($_POST["submit"])) {
+            $id = $_POST["id"];
+            $result1=$this->userModel->updateStatus($id);
+            foreach ($result1 as $k => $v) {
+                if ($v["Status"] == "pending") {
+                    $this->userModel->statusApproved($id);
+                } elseif ($v["Status"] == "approved") {
+                    $this->userModel->statusPending($id);
+                }
+            }
+        }
+        $result2=$this->userModel->getAllUsers();
+        $this->view('pages/admin/dashboard', $result2);
     }
     public function adminHome()
     {
@@ -99,7 +110,8 @@ class Pages extends Controller
         if (isset($_POST["update"])) {
             $id=$_POST["prodID"];
             $bname=$_POST["bname"];
-            $description=$_POST["description"];
+            $description=htmlentities($_POST["description"]);
+            // die(htmlentities($description));
             $image=$_POST["image"];
             $result1=$this->blogModel->updateBlog($id, $bname, $description, $image);
             if ($result1=="done") {

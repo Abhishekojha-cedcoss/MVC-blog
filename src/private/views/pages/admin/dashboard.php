@@ -23,22 +23,7 @@
 // $no_of_records_per_page");
 // $stm->execute();
 
-// if (isset($_POST["submit"])) {
-//     $id = $_POST["id"];
-//     $stm = user\DB::getInstance()->prepare("SELECT Status FROM Users WHERE user_id='$id'");
-//     $stm->execute();
-//     foreach ($stm->fetchAll() as $k => $v) {
-//         if ($v["Status"] == "pending") {
-//             $stmt1 = user\DB::getInstance()->prepare("UPDATE Users SET Status='approved' WHERE user_id='$id'");
-//             $stmt1->execute();
-//             header("location: dashboard.php");
-//         }
-//         if ($v["Status"] == "approved") {
-//             $stmt1 = user\DB::getInstance()->prepare("UPDATE Users SET Status='pending' WHERE user_id='$id'");
-//             $stmt1->execute();
-//             header("location: dashboard.php");
-//         }
-//     }
+
 // }
 // if (isset($_POST["submit1"])) {
 //     $id1 = $_POST["del"];
@@ -63,7 +48,8 @@
 
 
   <!-- Bootstrap core CSS -->
-  <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <link href="<?php echo URLROOT?>node_modules/bootstrap/dist/css/bootstrap.min.css" 
+  rel="stylesheet" crossorigin="anonymous">
 
 
   <style>
@@ -84,7 +70,7 @@
 
 
   <!-- Custom styles for this template -->
-  <link href="../assets/css/dashboard.css" rel="stylesheet">
+  <link href="<?php echo URLROOT?>assets/css/dashboard.css" rel="stylesheet">
 </head>
 
 <body>
@@ -116,7 +102,7 @@
         <div class="position-sticky pt-3">
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="dashboard.php">
+              <a class="nav-link active" aria-current="page" href="#">
                 <span data-feather="home"></span>
                 Dashboard
               </a>
@@ -188,10 +174,10 @@
     </div>
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js" 
+  <script src="<?php echo URLROOT?>node_modules/bootstrap/dist/js/bootstrap.bundle.js" 
   integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" 
   crossorigin="anonymous"></script>
-  <script src="adminscript.js"> </script>
+  <script src="<?php echo URLROOT?>assets/js/adminscript.js"> </script>
 </body>
 
 </html>

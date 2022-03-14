@@ -33,4 +33,20 @@ class User
         $result = $this->db->resultSet();
         return $result;
     }
+    public function updateStatus($id)
+    {
+        $this->db->query("SELECT Status FROM Users WHERE user_id='$id'");
+        $result = $this->db->resultSet();
+        return $result;
+    }
+    public function statusApproved($id)
+    {
+        $this->db->query("UPDATE Users SET Status='approved' WHERE user_id='$id'");
+        $this->db->execute();
+    }
+    public function statusPending($id)
+    {
+        $this->db->query("UPDATE Users SET Status='pending' WHERE user_id='$id'");
+        $this->db->execute();
+    }
 }

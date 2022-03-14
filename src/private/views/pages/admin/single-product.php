@@ -11,7 +11,7 @@
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="../node_modules//bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="<?php echo URLROOT?>node_modules//bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     </head>
     <body>
         <header>
@@ -89,8 +89,8 @@
             <div class="container"><p class="m-0 text-center text-white">&copy; CEDCOSS Technologies</p></div>
         </footer>
         <!-- Bootstrap core JS-->
-        <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="<?php echo URLROOT?>node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+        <script src="<?php echo URLROOT?>js/scripts.js"></script>
     </body>
 </html>

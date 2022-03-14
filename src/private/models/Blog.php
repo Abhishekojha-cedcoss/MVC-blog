@@ -42,4 +42,21 @@ class Blog
             return "not";
         }
     }
+    public function deleteBlog($id)
+    {
+        $this->db->query("DELETE FROM blogs WHERE blog_id='$id'");
+        $this->db->execute();
+    }
+    public function addNewBlog($bname, $description, $image)
+    {
+        try {
+            $this->db->query("INSERT INTO `blogs`(`blog_name`, `blog_description`, `blog_image`) 
+            VALUES('$bname', '$description', '$image')");
+            $this->db->execute();
+            return "done";
+        } catch (\PDOException $e) {
+            return "error";
+        }
+
+    }
 }

@@ -37,7 +37,7 @@
 
 <body class="text-center">
   <main class="form-signin">
-    <form action="" method="POST">
+    <form method="POST" action="">
       <h1 class="h3 mb-3 fw-normal">Sign In</h1>
 
       <div class="form-floating">
@@ -56,7 +56,7 @@
       </div>
       <button class="w-100 btn btn-lg btn-primary" name="submit" type="submit">Sign in</button>
       <div class="message text-danger">
-       <p> <?php if (!empty($result1)) {
+       <p> <?php if (!empty($data)) {
             echo $data;
 } else {
           echo $data??'';

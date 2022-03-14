@@ -1,25 +1,3 @@
-<?php
-session_start();
-include "../config.php";
-include "../classes/DB.php";
-
-if (isset($_POST["add"])) {
-    $bname=$_POST["bname"];
-    $description=$_POST["description"];
-    $image=$_POST["image"];
-
-    try {
-        $stmt = user\DB::getInstance()->prepare("INSERT INTO `blogs`(`blog_name`, `blog_description`, `blog_image`) 
-        VALUES('$bname', '$description', '$image')");
-        $stmt->execute();
-        header("location: home.php");
-    } catch (Exception $e) {
-        header("location:editblog.php");
-    }
-}
-
-
-?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -70,7 +48,7 @@ if (isset($_POST["add"])) {
   <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
   <div class="navbar-nav">
     <div class="nav-item text-nowrap">
-      <a class="nav-link px-3" href="signout.php">Sign out</a>
+      <a class="nav-link px-3" href="<?php echo URLROOT ?>pages/login">Sign out</a>
     </div>
   </div>
 </header>
@@ -81,14 +59,14 @@ if (isset($_POST["add"])) {
       <div class="position-sticky pt-3">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="dashboard.php">
+            <a class="nav-link active" aria-current="page" href="<?php echo URLROOT ?>pages/admindash">
               <span data-feather="home"></span>
               Dashboard
             </a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="home.php">
+            <a class="nav-link" href="<?php echo URLROOT ?>pages/adminHome">
               <span data-feather="shopping-cart"></span>
               Blogs
             </a>
@@ -118,7 +96,7 @@ if (isset($_POST["add"])) {
       </div>
        
 
-      <form class="row g-3" action="addNewBlog.php" method="POST">
+      <form class="row g-3" action="" method="POST">
 
         <div class="col-md-6">
           <label for="pname" class="form-label">Blog Name</label>

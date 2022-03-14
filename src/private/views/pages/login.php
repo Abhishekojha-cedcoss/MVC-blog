@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 
@@ -63,7 +62,7 @@
 } ?></p>
       </div>
       <p>Don't have a account?</p>
-      <a href="signup.php">Sign Up</a>
+      <a href="<?php echo URLROOT?>pages/signup">Sign Up</a>
       <p class="mt-5 mb-3 text-muted">&copy; CEDCOSS Technologies</p>
     </form>
 

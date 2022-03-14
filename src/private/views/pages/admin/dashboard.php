@@ -143,7 +143,7 @@
   <script src="<?php echo URLROOT?>node_modules/bootstrap/dist/js/bootstrap.bundle.js" 
   integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" 
   crossorigin="anonymous"></script>
-  <script src="<?php echo URLROOT?>assets/js/adminscript.js"> </script>
+  <script src="<?php echo URLROOT?>assets/js/script1.js"> </script>
 </body>
 
 </html>

@@ -23,14 +23,20 @@ class Pages extends Controller
     public function login()
     {
         $data="";
+        if (isset($_SESSION["users"])) {
+            unset($_SESSION["users"]);
+            session_destroy();
+        }
         if (isset($_POST["submit"])) {
             $email=$_POST['email']??'';
             $password=$_POST['password']??'';
             $result=$this->userModel->checkUser($email, $password);
             
             if ($result["role"]=="admin") {
+                $_SESSION["user"]=$result;
                 $this->adminHome();
             } elseif ($result["role"]=="user" && $result["status"]=="approved") {
+                $_SESSION["user"]=$result;
                 $this->userdash();
             } elseif ($result["role"]=="user" && $result["status"]=="pending") {
                 $data= "Not Approved";
@@ -61,10 +67,20 @@ class Pages extends Controller
             $this->view('pages/viewBlog', $result1);
         }
     }
-    public function profile($id)
+    public function profile()
     {
-
-        $this->view('pages/profile');
+        if (isset($_POST["submit"])) {
+            $fname=$_POST["fname"];
+            $lname=$_POST["lname"];
+            $password=$_POST["password"];
+            $email=$_POST["emailid"];
+            $this->userModel->updateUserDetails($fname, $lname, $password, $email);
+            $_SESSION["user"]["firstName"]=$fname;
+            $_SESSION["user"]["lastname"]=$lname;
+            $_SESSION["user"]["password"]=$password;
+        }
+        $data=$_SESSION["user"];
+        $this->view('pages/profile', $data);
     }
     public function admindash()
     {
@@ -142,5 +158,23 @@ class Pages extends Controller
             }
         }
         $this->view('pages/admin/addNewBlog');
+    }
+    public function signup()
+    {
+        if (isset($_SESSION["user"])) {
+            unset($_SESSION["user"]);
+        }
+        $data="";
+        $email=$username=$firstname=$lastname=$password="";
+        if (isset($_POST['submit'])) {
+            $email=$_POST["email"];
+            $username=$_POST["username"];
+            $firstname=$_POST["firstname"];
+            $lastname=$_POST["lastname"];
+            $password=$_POST["password"];
+        
+            $data=$this->userModel->addUser($username, $firstname, $lastname, $password, $email);
+        }
+        $this->view("pages/signup", $data);
     }
 }

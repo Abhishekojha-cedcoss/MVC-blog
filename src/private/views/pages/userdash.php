@@ -82,7 +82,7 @@
           <ul class="list-unstyled">
             <li><a href="#" class="text-white">Follow on Twitter</a></li>
             <li><a href="#" class="text-white">Like on Facebook</a></li>
-            <li><a href="<?php echo URLROOT?>pages/profile/" 
+            <li><a href="<?php echo URLROOT?>pages/profile" 
             class="text-white">View Profile</a></li>
           </ul>
         </div>
@@ -121,29 +121,7 @@
   </section>
 
   <div class="album py-5 bg-light">
-      <div class="container overflow-hidden">
-        <form class="row row-cols-lg-auto align-items-center mt-0 mb-3" method="POST">
-            <div class="col-lg-6 col-12">
-              <label class="visually-hidden" for="inlineFormInputGroupUsername">Search</label>
-              <div class="input-group">
-                <input type="text" class="form-control" id="inlineFormInputGroupUsername" name="input" 
-                placeholder="Blog Id, Name">
-              </div>
-            </div>
-          
-            <div class="col-lg-3 col-12">
-              <label class="visually-hidden" for="inlineFormSelectPref">Sort By</label>
-              <select class="form-select" id="inlineFormSelectPref" name="select">
-                <option selected value="">Sort By</option>
-                <option value="blog_id">Recently Added</option>
-              </select>
-            </div>
-          
-            <div class="col-lg-3 col-12">
-              <button type="submit" class="btn btn-primary w-100" name="search">Search</button>
-            </div>
-          </form>
-      </div>
+
 
               <div class="container">
               <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">

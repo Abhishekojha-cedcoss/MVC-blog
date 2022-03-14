@@ -80,7 +80,7 @@
 
                 </div>
                 <div class="col-2">
-          <a href="<?php echo URLROOT ?>pages/adminHome" class="btn btn-success">cancel</a>
+          <a href="<?php echo URLROOT ?>pages/adminHome" class="btn btn-success">Go Back</a>
         </div>
             </div>
         </section>

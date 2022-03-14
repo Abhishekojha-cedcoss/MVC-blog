@@ -1,23 +1,3 @@
-<?php
-// include "config.php";
-// include "classes/DB.php";
-// include "classes/User.php";
-// error_reporting(0);
-
-// $email=$username=$firstname=$lastname=$password="";
-// if (isset($_POST['submit'])) {
-//     $email=$_POST["email"];
-//     $username=$_POST["username"];
-//     $firstname=$_POST["firstname"];
-//     $lastname=$_POST["lastname"];
-//     $password=$_POST["password"];
-
-//     $user= new user\User($username, $firstname, $lastname, $password, $email);
-//     $error=$user->addUser();
-    
-// }
-?>
-
 <!doctype html>
 <html lang="en">
   <head>

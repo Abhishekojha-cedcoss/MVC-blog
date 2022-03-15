@@ -17,11 +17,6 @@
 
 
     <style>
-        /* .container-fluid  {
-    color: #f5f6f7;
-    background-color: #1abc9c;
-    color: #ffffff;
-  } */
   #sidebarMenu li a:hover {
     color: #1abc9c !important;
   }
